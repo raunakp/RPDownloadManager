@@ -15,6 +15,10 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		9ED413F116E9D949FAFDD379 /* Pods_RPDownloadManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF688E9AE4A3FCAA95A6EF5 /* Pods_RPDownloadManager_Example.framework */; };
 		D0A8758A5BE3FB466B0AACD4 /* Pods_RPDownloadManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93729FE2C8282BD0ED91B06D /* Pods_RPDownloadManager_Tests.framework */; };
+		D333A8B02354B3AE000F0A7A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8AE2354B3AE000F0A7A /* CollectionViewCell.swift */; };
+		D333A8B12354B3AE000F0A7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8AF2354B3AE000F0A7A /* PhotoViewController.swift */; };
+		D333A8B52354B723000F0A7A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8B32354B722000F0A7A /* Photo.swift */; };
+		D333A8B62354B723000F0A7A /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8B42354B722000F0A7A /* JSONUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		6DD9FD936A5DB3062A166C75 /* Pods-RPDownloadManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPDownloadManager_Example.debug.xcconfig"; path = "Target Support Files/Pods-RPDownloadManager_Example/Pods-RPDownloadManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		76FF630A0747ADDF028E565D /* RPDownloadManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RPDownloadManager.podspec; path = ../RPDownloadManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93729FE2C8282BD0ED91B06D /* Pods_RPDownloadManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPDownloadManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D333A8AE2354B3AE000F0A7A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		D333A8AF2354B3AE000F0A7A /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		D333A8B32354B722000F0A7A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D333A8B42354B722000F0A7A /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		DDF688E9AE4A3FCAA95A6EF5 /* Pods_RPDownloadManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPDownloadManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F842AB71BFC64D037F7D42E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,8 +101,12 @@
 		607FACD21AFB9204008FA782 /* Example for RPDownloadManager */ = {
 			isa = PBXGroup;
 			children = (
+				D333A8B42354B722000F0A7A /* JSONUtils.swift */,
+				D333A8B32354B722000F0A7A /* Photo.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				D333A8AE2354B3AE000F0A7A /* CollectionViewCell.swift */,
+				D333A8AF2354B3AE000F0A7A /* PhotoViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -357,7 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				D333A8B62354B723000F0A7A /* JSONUtils.swift in Sources */,
+				D333A8B12354B3AE000F0A7A /* PhotoViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				D333A8B02354B3AE000F0A7A /* CollectionViewCell.swift in Sources */,
+				D333A8B52354B723000F0A7A /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RPDownloadManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -519,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RPDownloadManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
