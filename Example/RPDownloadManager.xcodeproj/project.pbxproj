@@ -19,6 +19,8 @@
 		D333A8B12354B3AE000F0A7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8AF2354B3AE000F0A7A /* PhotoViewController.swift */; };
 		D333A8B52354B723000F0A7A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8B32354B722000F0A7A /* Photo.swift */; };
 		D333A8B62354B723000F0A7A /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8B42354B722000F0A7A /* JSONUtils.swift */; };
+		D333A8C02354C2EA000F0A7A /* LUCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8BF2354C2EA000F0A7A /* LUCacheTests.swift */; };
+		D333A8C22354C3A7000F0A7A /* DownloadManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D333A8C12354C3A7000F0A7A /* DownloadManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D333A8AF2354B3AE000F0A7A /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		D333A8B32354B722000F0A7A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D333A8B42354B722000F0A7A /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
+		D333A8BF2354C2EA000F0A7A /* LUCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUCacheTests.swift; sourceTree = "<group>"; };
+		D333A8C12354C3A7000F0A7A /* DownloadManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManagerTests.swift; sourceTree = "<group>"; };
 		DDF688E9AE4A3FCAA95A6EF5 /* Pods_RPDownloadManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPDownloadManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F842AB71BFC64D037F7D42E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				D333A8BF2354C2EA000F0A7A /* LUCacheTests.swift */,
+				D333A8C12354C3A7000F0A7A /* DownloadManagerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -381,7 +387,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D333A8C22354C3A7000F0A7A /* DownloadManagerTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				D333A8C02354C2EA000F0A7A /* LUCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -506,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

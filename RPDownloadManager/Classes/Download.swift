@@ -26,17 +26,17 @@ public class DownloadManager {
         return c
     }()
     
-    func setCacheCapacity(capacity: Int) {
+    public func setCacheCapacity(capacity: Int) {
         cache.setCacheCapacity(capacity: capacity)
     }
     
-    func clearCache() {
+    public func clearCache() {
         cache.removeAll()
     }
     
     fileprivate var downloadOperations = [String: ItemDownloadOperation]()
     
-    func cancelAll() {
+    public func cancelAll() {
         queue.async { [weak self] in
             self?.downloadQueue.cancelAllOperations()
             self?.downloadOperations.removeAll()

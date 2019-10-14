@@ -4,6 +4,7 @@ import Quick
 import Nimble
 import RPDownloadManager
 
+
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
         describe("these will fail") {

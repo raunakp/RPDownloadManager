@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Photo
-class Photo: Codable {
+public class Photo: Decodable {
     let id: String?
     let createdAt: Date?
     let width, height: Int?
@@ -53,7 +53,7 @@ class Photo: Codable {
 
 
 // MARK: - Category
-class Category: Codable {
+public class Category: Decodable {
     let id: Int?
     let title: Title?
     let photoCount: Int?
@@ -81,7 +81,7 @@ class Category: Codable {
 //   let categoryLinks = try? newJSONDecoder().decode(CategoryLinks.self, from: jsonData)
 
 // MARK: - CategoryLinks
-class CategoryLinks: Codable {
+public class CategoryLinks: Decodable {
     let linksSelf, photos: String?
 
     enum CodingKeys: String, CodingKey {
@@ -97,9 +97,7 @@ class CategoryLinks: Codable {
 
 // Title.swift
 
-import Foundation
-
-enum Title: String, Codable {
+public enum Title: String, Decodable {
     case buildings = "Buildings"
     case nature = "Nature"
     case objects = "Objects"
@@ -114,7 +112,7 @@ enum Title: String, Codable {
 //   let photoLinks = try? newJSONDecoder().decode(PhotoLinks.self, from: jsonData)
 
 // MARK: - PhotoLinks
-class PhotoLinks: Codable {
+public class PhotoLinks: Decodable {
     let linksSelf: String?
     let html, download: String?
 
@@ -138,7 +136,7 @@ class PhotoLinks: Codable {
 //   let urls = try? newJSONDecoder().decode(Urls.self, from: jsonData)
 
 // MARK: - Urls
-class Urls: Codable {
+public class Urls: Decodable {
     let raw, full, regular, small: String?
     let thumb: String?
 
@@ -159,7 +157,7 @@ class Urls: Codable {
 //   let user = try? newJSONDecoder().decode(User.self, from: jsonData)
 
 // MARK: - User
-class User: Codable {
+public class User: Decodable {
     let id, username, name: String?
     let profileImage: ProfileImage?
     let links: UserLinks?
@@ -187,7 +185,7 @@ class User: Codable {
 //   let userLinks = try? newJSONDecoder().decode(UserLinks.self, from: jsonData)
 
 // MARK: - UserLinks
-class UserLinks: Codable {
+public class UserLinks: Decodable {
     let linksSelf: String?
     let html: String?
     let photos, likes: String?
@@ -213,7 +211,7 @@ class UserLinks: Codable {
 //   let profileImage = try? newJSONDecoder().decode(ProfileImage.self, from: jsonData)
 
 // MARK: - ProfileImage
-class ProfileImage: Codable {
+public class ProfileImage: Decodable {
     let small, medium, large: String?
 
     init(small: String?, medium: String?, large: String?) {
@@ -225,55 +223,4 @@ class ProfileImage: Codable {
 
 // JSONSchemaSupport.swift
 
-typealias Photos = [Photo]
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        // No-op
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}
-
-class JSONCodingKey: CodingKey {
-    let key: String
-
-    required init?(intValue: Int) {
-        return nil
-    }
-
-    required init?(stringValue: String) {
-        key = stringValue
-    }
-
-    var intValue: Int? {
-        return nil
-    }
-
-    var stringValue: String {
-        return key
-    }
-}
+public typealias Photos = [Photo]

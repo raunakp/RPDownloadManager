@@ -2,6 +2,8 @@ import Foundation
 
 public class LRUCache {
     
+    public init() {}
+    
     private var serialQueue: DispatchQueue = {
         let uuid = UUID().uuidString
         let q = DispatchQueue(
@@ -20,7 +22,7 @@ public class LRUCache {
         }
     }
     
-    private(set) var maxCapacity: Int = 10 {
+    public private(set) var maxCapacity: Int = 10 {
         willSet {
             if list.count > newValue {
                 let numEvictions = maxCapacity - newValue
@@ -43,7 +45,7 @@ public class LRUCache {
         }
     }
     
-    func set(value: Any, key: String) {
+    public func set(value: Any, key: String) {
         serialQueue.async { [weak self] in
             guard let self = self else {
                 return
@@ -57,7 +59,7 @@ public class LRUCache {
         }
     }
     
-    func value(forKey key: String) -> Any? {
+    public func value(forKey key: String) -> Any? {
         var val: Any?
         serialQueue.sync {
             val = dict[key]
@@ -87,7 +89,7 @@ public class LRUCache {
         return val
     }
     
-    func remove(forKey key: String) -> Any? {
+    public func remove(forKey key: String) -> Any? {
         serialQueue.async{ [weak self] in
             guard let self = self else {
                 return
@@ -106,7 +108,7 @@ public class LRUCache {
         }
     }
     
-    func removeAll() {
+    public func removeAll() {
         serialQueue.async { [weak self] in
             guard let self = self else {
                 return
@@ -116,7 +118,7 @@ public class LRUCache {
         }
     }
     
-    var count: Int {
+    public var count: Int {
         var count: Int!
         serialQueue.sync {
             count = list.count
