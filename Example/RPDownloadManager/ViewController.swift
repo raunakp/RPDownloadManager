@@ -24,8 +24,9 @@ let CellReuseIdentifier = "Cell"
 
 class ViewController: UICollectionViewController {
     
+    private let refreshControl = UIRefreshControl()
+    
     let path = "http://pastebin.com/raw/wgkJgazE"
-    let downloadManager = DownloadManager()
     var photos = Photos()
     
     override func viewDidLoad() {
@@ -36,11 +37,14 @@ class ViewController: UICollectionViewController {
         self.collectionView!.collectionViewLayout = layout
         
         self.initializePhotos()
+        collectionView?.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(initializePhotos), for: .valueChanged)
     }
     
-    func initializePhotos() {
+    @objc func initializePhotos() {
         if let url = URL.init(string: path) {
-            let _ = downloadManager.downloadItem(atURL: url) { [weak self] (data: Data?) in
+            let urlSession = URLSession.init(configuration: .default)
+            let dataTask = urlSession.dataTask(with: url) { [weak self] (data, response, error) in
                 guard let self = self else { return }
                 if let data = data {
                     let decoder = JSONDecoder()
@@ -49,9 +53,11 @@ class ViewController: UICollectionViewController {
                     self.photos = photos.repeated(count: 10)
                     DispatchQueue.main.async {
                         self.collectionView?.reloadData()
+                        self.refreshControl.endRefreshing()
                     }
                 }
             }
+            dataTask.resume()
         }
         
     }
